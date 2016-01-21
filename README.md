@@ -1,12 +1,8 @@
-# lexstart-project
+# Lexstart task management app.
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.15.1.
+This is a demo application based on angularjs and bootstrap
 
-## Build & development
+Run `grunt` for building and `grunt serve` for running app on your local.
 
-Run `grunt` for building and `grunt serve` for preview.
+Author: Vivek Mannotra
 
-## Testing
-
-Running `grunt test` will run the unit tests with karma.
