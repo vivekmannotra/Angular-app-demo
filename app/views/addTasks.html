@@ -1,0 +1,35 @@
+<!-- Modal content-->
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h4 class="modal-title">Add New Task</h4>
+  </div>
+  <div class="modal-body">
+    <form role="form">
+      <div class="form-group">
+        <label for="email">Task Description:</label>
+        <input type="text" class="form-control" id="description">
+      </div>
+      <div class="form-group">
+        <label for="pwd">Task Date:</label>
+        <div class="input-group date" data-provide="datepicker">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Actions:</label>
+        <label><input type="checkbox"> Sample Action</label>
+      </div>
+      <div class="checkbox">
+        <label><input type="checkbox"> Remember me</label>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-default" ng-click="">Save</button>
+  </div>
+</div>
