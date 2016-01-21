@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <div class="panel panel-primary animate-if" ng-click="task.expand = !task.expand;" data-toggle="tooltip" data-placement="top"
+       title="Click on a task to see more details." ng-repeat="task in view.taskData.tasks">
+    <h4 tooltip="Task Description">Sample Task number 1</h4>
+    <ul class="list-group animate-if" ng-if="task.expand">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row marketing">
+<p><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add a new task <span class="glyphicon glyphicon-plus-sign"></span></button></p>
+</div>
+
