@@ -473,7 +473,7 @@ module.exports = function (grunt) {
     'usemin',
     'htmlmin'
   ]);
-
+grunt.registerTask('heroku:development', 'clean less mincss');
   grunt.registerTask('default', [
     'newer:jshint',
     'newer:jscs',
