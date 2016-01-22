@@ -1,15 +1,40 @@
+
+<div class="page-header" style="margin-top: -30px;">
+  <h3>Here is a list of all the tasks <small>click individual task's header to see more details...</small></h3>
+</div>
 <div class="jumbotron">
-  <div class="panel panel-primary animate-if" ng-click="task.expand = !task.expand;" data-toggle="tooltip" data-placement="top"
-       title="Click on a task to see more details." ng-repeat="task in view.taskData.tasks">
-    <h4 tooltip="Task Description">Sample Task number 1</h4>
-    <ul class="list-group animate-if" ng-if="task.expand">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
+  <div class="panel panel-primary animate-if" ng-repeat="task in view.taskData.tasks" data-toggle="tooltip" data-placement="top"
+       tooltip="Click on a task to see more details.">
+    <!-- Default panel contents -->
+    <div class="panel-heading" ng-click="task.expand = !task.expand;">{{task.name}}
+      <span class="glyphicon glyphicon-plus" style="float:right;" ng-if="!task.expand"></span>
+      <span ng-if="task.expand" class="glyphicon glyphicon-minus" style="float:right;"></span></div>
+    <div class="panel-body" style="padding-bottom: 5px;">
+      <h5>{{task.description}}</h5>
+      <h4>Date: <small>{{task.date}}</small></h4>
+      <a href="javascript:" ng-click="task.showActions = !task.showActions;">Actions: <span class="badge" ng-if="!task.expand && !task.showActions">{{task.actions.length}}</span></a>
+    </div>
+    <!-- Action List -->
+    <ul class="list-group animate-if" ng-if="task.expand || task.showActions">
+      <li class="list-group-item" ng-repeat="action in task.actions">
+        <span class="glyphicon glyphicon-wrench"></span> {{action.operation}}
+        <span class="glyphicon glyphicon-remove" style="float:right;cursor: pointer;" ng-click="task.actions.splice($index, 1)"></span>
+      </li>
+    </ul>
+    <div class="panel-body" style="padding-top: 5px;">
+      <a href="javascript:" ng-click="task.showDoc = !task.showDoc;">Documents: <span class="badge" ng-if="!task.expand && !task.showDoc">{{task.Documents.length}}</span></a>
+    </div>
+    <!-- Document List -->
+    <ul class="list-group animate-if" ng-if="task.expand || task.showDoc">
+      <li class="list-group-item" ng-repeat="document in task.Documents">
+        <span class="glyphicon glyphicon-file"></span> {{document.name}}
+        <span class="glyphicon glyphicon-remove" style="float:right;cursor: pointer;" ng-click="task.Documents.splice($index, 1)"></span>
+      </li>
     </ul>
   </div>
 </div>
 
 <div class="row marketing">
-<p><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add a new task <span class="glyphicon glyphicon-plus-sign"></span></button></p>
+<p><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ng-click="view.addNewTask()">Add a new task <span class="glyphicon glyphicon-plus-sign"></span></button></p>
 </div>
 
