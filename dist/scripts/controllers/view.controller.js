@@ -16,6 +16,7 @@ function viewController (taskFactory) {
         view.taskData.tasks[i].description = view.taskData.tasks[i].Legal_Action_Type.template;
         view.taskData.tasks[i].date = moment(view.taskData.tasks[i].created_at).format("MM/DD/YY");
         view.taskData.tasks[i].actions = view.taskData.tasks[i].Legal_Action_Type.Action_Type_Operation;
+        view.templateTask = angular.copy(view.taskData.tasks[0]);
         for(var j in view.taskData.tasks[i].actions) {
           if (_.isUndefined(_.find(view.actions, function (act) {
               return act.operation === view.taskData.tasks[i].actions[j].operation;
@@ -27,7 +28,7 @@ function viewController (taskFactory) {
     });
   }
   view.addNewTask = function () {
-    view.newTask = angular.copy(view.taskData.tasks[0]); //creating new task with old task as template.
+    view.newTask = view.templateTask; //creating new task with old task as template.
     view.newTask.name = null;
     view.newTask.description = null;
     view.newTask.date = null;
