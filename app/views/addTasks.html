@@ -8,23 +8,23 @@
     <form role="form">
       <div class="form-group">
         <label for="email">Name:</label>
-        <input type="text" ng-model="view.newTask.name" class="form-control" id="description">
+        <input type="text" ng-model="view.newTask.name" placeholder="Enter owner's name" class="form-control" id="description">
       </div>
       <div class="form-group">
         <label for="email">Task Description:</label>
-        <input type="text" ng-model="view.newTask.description" class="form-control" id="description">
+        <input type="text" ng-model="view.newTask.description" placeholder="Enter task Description..." class="form-control" id="description">
       </div>
       <div class="form-group">
         <label for="pwd">Task Date:</label>
         <div class="input-group date" data-provide="datepicker">
-          <input type="text" ng-model="view.newTask.date"  class="form-control">
+          <input type="text" ng-model="view.newTask.date"  class="form-control" placeholder="Select task Date...">
           <div class="input-group-addon">
             <span class="glyphicon glyphicon-th"></span>
           </div>
         </div>
       </div>
       <div class="form-group">
-        <label for=actions>Actions:</label><br>
+        <label for=actions>Actions:</label><span class="glyphicon glyphicon-plus" style="cursor: pointer;float: right;" ng-click="view.actions.push({})"></span><br>
         <div class="col-lg-6" ng-repeat="action in view.actions">
           <div class="input-group">
             <span class="input-group-addon">
@@ -45,7 +45,7 @@
         <ul class="list-group">
           <li class="list-group-item">
             <span class="badge"><span class="glyphicon glyphicon-plus" style="cursor: pointer;" ng-click="view.addNewDoc()"></span></span>
-            <input type="text" ng-model="view.newDoc" style="width:80%;">
+            <input type="text" ng-model="view.newDoc" style="width:80%;" placeholder="Enter document name...">
           </li>
         </ul>
       </div>
